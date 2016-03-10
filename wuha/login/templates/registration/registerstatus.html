@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+    	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+    	<link rel="stylesheet" href="/static/steps/css/normalize.css">
+        <link rel="stylesheet" href="/static/steps/css/main.css">
+        <link rel="stylesheet" href="/static/steps/css/jquery.steps.css">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="http://mbostock.github.com/d3/d3.v2.js"></script>
+		<script src="/static/registration/js/d3pie.js"></script>
+		<script src="/static/registration/js/d3pie.min.js"></script>
+        <script src="/static/steps/lib/modernizr-2.6.2.min.js"></script>
+        <script src="/static/steps/lib/jquery-1.9.1.min.js"></script>
+        <script src="/static/steps/lib/jquery.cookie-1.3.1.js"></script>
+        <script src="/static/steps/build/jquery.steps.js"></script>
+        <script src="/static/steps/dist/sweetalert-dev.js"></script>
+		<link rel="stylesheet" href="/static/steps/dist/sweetalert.css">
+		<script src="/static/registration/js/select22.js"></script>
+		<link rel="stylesheet" type="text/css" href="/static/registration/css/select22.css">
+		<script src="/static/registration/status.js"></script>
+		<script src="http://www.google.com/jsapi"></script>
+		<script src="/static/registration/js/chartkick.js"></script>
+		<script src="/static/registration/js/jquery.placecomplete.js"></script>
+    	<link rel="stylesheet" href="/static/registration/css/jquery.placecomplete.css">
+
+		<style type="text/css">
+
+			table{
+				width: 99%;
+				float: left;
+				margin-left: 0%; 
+			}
+			table, td, th {
+			    border : 1px solid black;
+			}
+			th { 
+				font-family: 'Droid Sans', sans-serif;
+				font-weight: 600;
+				text-align: center; 
+			}
+			td {
+				ont-family: 'Droid Sans', sans-serif;
+				font-weight: 300;
+				text-align: center; 
+			}
+			.filename{
+				width: 25%;
+			}
+			.create{
+				width:15%;
+			}
+			.description{
+				width:49%;
+			}
+			.download{
+				width: 1%;
+			}
+			.download:hover{
+				-webkit-box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);
+			    -moz-box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);
+			    box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);
+			}
+			th, td {
+				padding: 1%;
+			}
+			th.center, td.center { 
+				text-align: center; 
+			}
+			th.num, td.num { 
+				text-align: right; 
+			}
+			.kuang1 {
+				width:100%;
+				height: auto;
+				
+			}
+			.kuang1:hover{
+				-webkit-box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);
+			    -moz-box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);
+			    box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);
+			}
+			.kuang2{
+				
+			}
+			.kuang2:hover{
+				
+			}
+			.infobutton{
+				width: 100%;
+			}
+			.infobuttonh3{
+				font-size:30px;
+				font-family:arial;
+				color:#666666;
+			}
+			.infobuttonh6{
+				font-size:20px;
+				font-family:arial;
+				color:#666666;
+			}
+			.infobuttonh5{
+				display: inline-block;
+				font-size:30px;
+				font-family:arial;
+				color:#666666;
+			}
+
+			.scplot {
+				float:right;
+				width:45%; 
+				height:100%;
+			}
+			.axis line, .axis path {
+			    shape-rendering: crispEdges;
+			    stroke: black;
+			    fill: none;
+			}
+			input {
+				
+			}
+			.section-out{
+				width:205.6%; 
+				float:left; 
+				transition:all 600ms ease;
+			}
+			
+			.section-out section{
+				width:50%;
+				float:left;
+			}
+			
+			#hack:checked~.section-out{
+				margin-left:-105.6%;
+			}
+			#regular:checked~.section-out{
+				margin-left:0px;
+			}
+			
+			#hack1:checked~.section-out{
+				margin-left:-100%
+			}
+			#regular1:checked~.section-out{
+				margin-left:0px;
+			}
+			
+			#hack2:checked~.section-out{
+				margin-left:-105.6%;
+			}
+			#regular2:checked~.section-out{
+				margin-left:0px;
+			}
+
+			#hack3:checked~.section-out{
+				margin-left:-100%;
+			}
+			#regular3:checked~.section-out{
+				margin-left:0px;
+			}
+			
+			#regular-form{
+				width:100%;
+				overflow: scroll;
+			}
+			#regular1-form{
+				width:100%;
+				overflow: scroll;
+			}
+			#regular2-form{
+				width:100%;
+				overflow: scroll;
+			}
+			.form-header{
+				display:table; 
+				clear:both;
+				padding: 1%;
+
+			}
+			.form-header label{
+				display:block; 
+				cursor:pointer; 
+				z-index:999;
+			}
+			.form-header li{
+				font-family: 'Droid Sans', sans-serif;
+				font-weight: 900;
+				line-height:auto; 
+				width:175px; 
+				padding: 1%;
+				text-align:center; 
+				background:#f1f1f1; 
+				font-size:20px; 
+				color: black;
+				float:left; 
+				transition:all 600ms ease;
+			}
+			.hide{
+				display: none;
+			}
+			li{
+				list-style:none;
+			}
+			.cal{
+				text-align: center;
+				float: right;
+				margin-right: 0%;
+				margin-left: 1%;
+				width: 15%;
+				padding: 1%;
+				border-style: solid;
+				border-width: 1px;
+				border-color: #cccccc;
+			}
+			.cal2{
+				text-align: center;
+				float: right;
+				margin-right: 0%;
+				margin-left: 0%;
+				width: 10%;
+				padding: 1%;
+				border-style: solid;
+				border-width: 1px;
+				border-color: #cccccc;
+			}
+			.total{
+				float:right;
+				padding: 1%;
+				width: 15%;
+				border-right-style: hidden;
+			}
+			.add{
+				background: url('');
+				display: inline-block; 
+				float: right;
+				border-radius: 0px; 
+				margin-bottom: 1%;
+				width:32px;
+				height: 32px;
+				border-style: hidden;
+			}
+			.addhidden	{
+				background: #F0EEF0;
+				display: inline-block; 
+				float: right;
+				display: none;
+				margin-top: 2%;
+				padding: 0.3%;
+				font-family: 'Droid Sans', sans-serif;
+				text-align: center;
+			}
+			.addhidden1	{
+				background: #F0EEF0;
+				display: inline-block; 
+				float: right;
+				display: none;
+				margin-top: -5%;
+				margin-right: -6%;
+				padding: 0.3%;
+				font-family: 'Droid Sans', sans-serif;
+				text-align: center;
+			}
+			.add1{
+				background: url('');
+				display: inline-block; 
+				float: right;
+				border-radius: 0px; 
+				margin-top: 2%;
+				margin-right: 10%;
+				width:32px;
+				height: 32px;
+				border-style: hidden;
+			}
+			.add1 img{
+				width: 30px;
+				height: 30px;
+
+			}
+			.add img{
+				width: 30px;
+				height: 30px;
+
+			}
+			.tagview {
+				width: 100%;
+				height: 3px;
+				background: #1A6898;
+			}
+			.gb:hover{
+				-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+				-moz-box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+				box-shadow: 0px 1px 1px rgba(0,0,0,.1);
+			}
+
+		</style>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    	<script type="text/javascript">
+		    // google.charts.load('current', {'packages':['table']});
+		    // google.charts.setOnLoadCallback(drawTable);
+
+		    // function drawTable() {
+		    // 	var data = new google.visualization.DataTable();
+		    //     data.addColumn('string', 'FileName');
+		    //     data.addColumn('string', 'CreatedOn');
+		    //     data.addColumn('string', 'Description');
+		    //     data.addRows([
+		        	// {% for key, value in filename.items %}
+		        	// 	['{{value}}'.split("\t")[0], "{{value}}".split("\t")[1].substr(0,4)+"/"+"{{value}}".split("\t")[1].charAt(4)+"{{value}}".split("\t")[1].charAt(5)+"/"+"{{value}}".split("\t")[1].charAt(6)+"{{value}}".split("\t")[1].charAt(7)+"/"+"{{value}}".split("\t")[1].charAt(9)+"{{value}}".split("\t")[1].charAt(10)+":"+"{{value}}".split("\t")[1].charAt(11)+"{{value}}".split("\t")[1].charAt(12)+":"+"{{value}}".split("\t")[1].charAt(13)+"{{value}}".split("\t")[1].charAt(14), '{{key}}'],
+		        	// {% endfor %}
+		    //     ]);
+
+		    //     var table = new google.visualization.Table(document.getElementById('filetable'));
+
+		    //     table.draw(data, {showRowNumber: true, width: '100%'});
+		    // }
+		    $(document).ready(function(){
+		    	var t = "<table><tr><th class=\"filename\">FileName</th><th class=\"create\">CreateTime</th><th class=\"description\">Description</th><th>Download</th></tr>";
+
+		    	{% for key, value in filename.items %}
+		        	t = t + "<tr><td class=\"filename\">"+'{{value}}'.split('\t')[0]+"</td><td class=\"create\">"+'{{value}}'.split('\t')[1].substr(0,4)+'/'+'{{value}}'.split('\t')[1].charAt(4)+'{{value}}'.split('\t')[1].charAt(5)+'/'+'{{value}}'.split('\t')[1].charAt(6)+'{{value}}'.split('\t')[1].charAt(7)+'/'+'{{value}}'.split('\t')[1].charAt(9)+'{{value}}'.split('\t')[1].charAt(10)+':'+'{{value}}'.split('\t')[1].charAt(11)+'{{value}}'.split('\t')[1].charAt(12)+':'+'{{value}}'.split('\t')[1].charAt(13)+'{{value}}'.split('\t')[1].charAt(14)+"</td><td class=\"description\">"+'{{key}}'+"</td><td><a class=\"download\" href=/static/log/" + '{{value}}'.split('\t')[0] + " download><img src=\"/static/registration/images/download.png\"></a></td></tr>"
+		        {% endfor %}
+
+		        t = t + "</table>";
+
+				$("#filetable").append(t);
+			});
+    	</script>
+    	<script type="text/javascript">
+
+    	</script>
+    </head>
+    <body>
+    	<div style="float: left; width: 30%; display: inline-block; text-align: center;"><img src="/static/logo.png" style="width: 90%; margin-top: 1%;"></div>
+    	<div style="display:inline-block;float:left; text-align: center; width: 30%; margin-left: 5%; margin-top: 2%;font-family: 'Droid Sans', sans-serif; color: #1A6898; font-size: 20px; font-wight:900;">Welcome <div id="username" style="display:inline-block;">{{username}}</div></div>
+    	<br><br><br><br><br><br><br>
+    	<div style="float:left; width:90%; height: 600px; margin-left: 5%; background-color: white;-webkit-box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);-moz-box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);box-shadow: 9px 9px 33px 1px rgba(0,0,0,0.52);">
+			<h3 style="width:100%;padding:1%;text-align:center;font-family: 'Droid Sans', sans-serif; font-size:20px; font-weight:900;">List of existing logs</h3>
+			<div id="filetable" style="text-align:center;float:left;width:80%;height:80%;margin-left:10%;margin-top:0%;overflow: scroll;">
+				
+				<!-- <table class="google-visualization-table-table" cellspacing="0" style="width: 100%;">
+					<thead>
+						<tr class="google-visualization-table-tr-head">
+							<th class="google-visualization-table-th gradient unsorted">&nbsp;</th>
+							<th class="google-visualization-table-th gradient unsorted">FileName<span class="google-visualization-table-sortind"></span></th>
+							<th class="google-visualization-table-th gradient unsorted">CreatedOn<span class="google-visualization-table-sortind"></span></th>
+							<th class="google-visualization-table-th gradient unsorted">Description<span class="google-visualization-table-sortind"></span></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="google-visualization-table-tr-even">
+							<td class="google-visualization-table-td google-visualization-table-seq">1</td>
+							<td class="google-visualization-table-td">access_log_20160223-035020.log</td>
+							<td class="google-visualization-table-td">2016/02/23/03:50:20</td>
+							<td class="google-visualization-table-td">asd</td>
+						</tr>
+						<tr class="google-visualization-table-tr-odd">
+							<td class="google-visualization-table-td google-visualization-table-seq">2</td>
+							<td class="google-visualization-table-td">access_log_20160301-234630.log</td>
+							<td class="google-visualization-table-td">2016/03/01/23:46:30</td>
+							<td class="google-visualization-table-td">asfaffad</td>
+						</tr>
+						<tr class="google-visualization-table-tr-even">
+							<td class="google-visualization-table-td google-visualization-table-seq">3</td>
+							<td class="google-visualization-table-td">access_log_20160222-181600.log</td>
+							<td class="google-visualization-table-td">2016/02/22/18:16:00</td>
+							<td class="google-visualization-table-td">first</td>
+						</tr>
+					</tbody>
+				</table> -->
+
+				<!-- <div style="font-family: 'Droid Sans', sans-serif;font-size:2em;">FileList</div> -->
+
+				<script src="http://d3js.org/d3.v3.min.js"></script>
+				<script src="https://rawgit.com/gka/d3-jetpack/master/d3-jetpack.js"></script>
+			    <script>
+
+				    // the table rows, typically loaded from data file using d3.csv
+				    // var movies = [
+				    //     {% for key, value in filename.items %}
+				    //     	"{{key}}"+" "+"{{value}}".split("\t")[0]+" "+"{{value}}".split("\t")[1].substr(0,4)+"/"+"{{value}}".split("\t")[1].charAt(4)+"{{value}}".split("\t")[1].charAt(5)+"/"+"{{value}}".split("\t")[1].charAt(6)+"{{value}}".split("\t")[1].charAt(7)+"/"+"{{value}}".split("\t")[1].charAt(9)+"{{value}}".split("\t")[1].charAt(10)+":"+"{{value}}".split("\t")[1].charAt(11)+"{{value}}".split("\t")[1].charAt(12)+":"+"{{value}}".split("\t")[1].charAt(13)+"{{value}}".split("\t")[1].charAt(14),
+				    //     {% endfor %}
+				    // ];
+
+				    // var svg = d3.select("#filetable").append("svg")
+								// 		    .attr({
+								// 		        width: 270, 
+								// 		    })
+								// 		    .selectAll("a")
+								// 		    .data(movies)
+								// 		    .enter().append("a")
+								// 		    .attr({"download":"#", "xlink:href": "#"})
+								// 		    .on("mouseover", function(d, i){ 
+								// 		        d3.select(this) 
+								// 		            .attr({"download": d.split(" ")[1], "xlink:href": "/static/log/" + d.split(" ")[1],});
+								// 		    })
+								// 		    .append("text")
+								// 		    .attr({x: 10, y: function(d, i){ return i*15+15; }})
+								// 		    .text(function(d, i){ return "Desc: "+d.split(" ")[0] + "\tTime: "+d.split(" ")[2]; });
+
+				    
+
+
+			    </script>
+			</div>
+			<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" style="position: relative;margin-top: 33%;float:right; margin-right: 1%; background-color: white; width: auto; height: auto; border-color: white;color:black;"><img src="/static/registration/images/add.png" style="width:30px;height:30px;"></button>
+		</div>
+    	<div class="modal fade" id="myModal"d role="dialog">
+    		<div style="width: 100%; margin-top: 5%;">
+		        <div class="content">
+		            
+		            
+		            <div id="wizard">
+		            	<!-- dec -->
+		            	<h2>Description<br>RowCount</h2>
+		                <section>
+
+		                	
+		                	{% csrf_token %}
+		                    <form>
+		                    	<h3 class="infobuttonh3">Provide a description for this log file</h3>
+		                    	<!-- regular -->
+		                    	<div class="">
+								  	<!-- <div style="text-align: center; width: auto;display: inline-block; color: black; padding: 0.3em; margin-top:1%;margin-bottom: 1%; border-radius: 0px;font-size:23px;">
+								  		Description
+								  	</div> -->
+								  	<input type="text" id="description" style="border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;font-size:23px;text-align: center; padding: 1%; border-radius: 0px;width:50%;" placeholder="Description" required>
+							    </div>
+							    <br>
+							    <h3 class="infobuttonh3">Provide "Regular User" Row Count</h3>
+		                    	<!-- regular -->
+		                    	<div class="">
+								  	<!-- <div style="text-align: center; width: 6%;display: inline-block; color: black; padding: 0.3em; margin-top:1%;margin-bottom: 1%; border-radius: 0px;">
+								  		Regular
+								  	</div> -->
+								  	<input type="text" id="regularrow" style="border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;;font-size:23px;width:50%;text-align: center; padding: 1%; border-radius: 0px;" placeholder="100000" required>
+							    </div>
+							  	<br>
+							  	<h3 class="infobuttonh3">Provide "Hacker User" Row Count</h3>
+							  	<!-- hack -->
+							  	<div class="">
+								  	<!-- <div style="text-align: center; width: 6%; display: inline-block; color: black; padding: 0.3em;margin-top:1%; margin-bottom: 1%; border-radius: 0px;">
+								  		Hacker
+								  	</div> -->
+								  	<input type="text" id="hackrow" style="border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;font-size:23px;width:50%;text-align: center; padding: 1%; border-radius: 0px;" placeholder="100000" required>
+								 </div>
+							</form>
+		                </section>
+
+
+		                <!-- PageSize -->
+		                <h2>Page Data<br>Size</h2>
+		                <section>
+		                	<h3 class="infobuttonh3">Provide name and size of pages on website</h3>
+		                	<div style="width:60%;float:left;height:100%;">
+			                	<!-- add -->
+			                	<!-- <input type="button" id="add-method" name="add-method" value="Add Method" style="float: right;  background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+			                	<button id="add-size" name="add-size" class="add" style="margin-right:1.8%;"><img src="/static/registration/images/add.png"></button>
+			                	
+			                    <!-- name -->
+				                <div id="ceshi11" style="display: inline-block; width: 75%; background-color: white; color: black; padding: 1%; margin-bottom: 1%; border-radius: 0px;margin-top:1%;margin-left:12%;">
+					              	Page Name<div style="display:inline-block;margin-left:60%;">Page Size</div>
+					            </div>
+				                
+				                <!-- pecentage -->
+				                
+				                <div class="kuang" style="height:100%;overflow:scroll;">
+				                	<div id="ceshi111"></div>
+				                    <div class="kuang2" id="pagesize0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 94.51%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="pagename" id="pagename" style="height:100%; border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;margin-left: 9%; text-align: center; width: 20%; border-radius: 0px;" value="a.html" required >
+					                    
+					                    <input class="" type="text" name="pagesize" id="pagesize" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 10%;  border-radius: 0px;" value="30" required>
+					                    KB
+					                    
+				                    </div>
+				                    <button id="remove-size0" name="remove-size" style="height:47px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+
+				                    <div class="kuang2" id="pagesize1" style="height:47px;font-size:15px;float:left; display: inline-block; width: 94.51%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="pagename" id="pagename" style="height:100%;border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;margin-left: 9%; text-align: center; width: 20%; border-radius: 0px;" value="b.html" required >
+					                    
+					                    <input class="" type="text" name="pagesize" id="pagesize" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 10%;  border-radius: 0px;" value="50" required>
+					                    KB
+					                    
+				                    </div>
+				                    <button id="remove-size1" name="remove-size" style="height:47px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+
+				                    <div class="kuang2" id="pagesize2" style="height:47px;font-size:15px;float:left; display: inline-block; width: 94.51%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="pagename" id="pagename" style="height:100%;border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;margin-left: 9%; text-align: center; width: 20%; border-radius: 0px;" value="c.html" required >
+					                    
+					                    <input class="" type="text" name="pagesize" id="pagesize" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 10%;  border-radius: 0px;" value="60" required>
+					                    KB
+					                    
+				                    </div>
+				                    <button id="remove-size2" name="remove-size" style="height:47px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+
+				                    <div class="kuang2" id="pagesize3" style="height:47px;font-size:15px;float:left; display: inline-block; width: 94.51%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="pagename" id="pagename" style="height:100%;border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;margin-left: 9%; text-align: center; width: 20%; border-radius: 0px;" value="d.html" required >
+					                    
+					                    <input class="" type="text" name="pagesize" id="pagesize" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 10%;  border-radius: 0px;" value="70" required>
+					                    KB
+					                    
+				                    </div>
+				                    <button id="remove-size3" name="remove-size" style="height:47px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+
+				                    <div class="kuang2" id="pagesize4" style="height:47px;font-size:15px;float:left; display: inline-block; width: 94.51%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="pagename" id="pagename" style="height:100%;border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;margin-left: 9%; text-align: center; width: 20%; border-radius: 0px;" value="e.html" required >
+					                    
+					                    <input class="" type="text" name="pagesize" id="pagesize" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 10%;  border-radius: 0px;" value="80" required>
+					                    KB
+					                    
+				                    </div>
+				                    <button id="remove-size4" name="remove-size" style="height:47px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+
+				                    <div class="kuang2" id="pagesize5" style="height:47px;font-size:15px;float:left; display: inline-block; width: 94.51%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="pagename" id="pagename" style="height:100%;border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;margin-left: 9%; text-align: center; width: 20%; border-radius: 0px;" value="f.html" required >
+					                    
+					                    <input class="" type="text" name="pagesize" id="pagesize" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 10%;  border-radius: 0px;" value="90" required>
+					                    KB
+					                    
+				                    </div>
+				                    <button id="remove-size5" name="remove-size" style="height:47px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                </div>
+				            </div>
+				            	
+		                </section>
+
+
+		            	<!-- row -->
+		            	<!-- <h2>Row Count</h2> -->
+		               <!--  <section>
+		                	{% csrf_token %}
+		                    <form>
+		                    	<h3 class="infobutton">Provide Regular Row Count</h3> -->
+		                    	<!-- regular -->
+		                    	<!-- <div class="kuang1">
+								  	<div style="text-align: center; width: 6%;display: inline-block; color: black; padding: 0.3em; margin-top:1%;margin-bottom: 1%; border-radius: 0px;">
+								  		Regular
+								  	</div>
+								  	<input type="text" id="regularrow" style="text-align: center; padding: 0.3em; border-radius: 0px;" placeholder="100000" required>
+							    </div>
+							  	<br><br>
+							  	<h3 class="infobutton">Provide Hacker Row Count</h3> -->
+							  	<!-- hack -->
+							  	<!-- <div class="kuang1">
+								  	<div style="text-align: center; width: 6%; display: inline-block; color: black; padding: 0.3em;margin-top:1%; margin-bottom: 1%; border-radius: 0px;">
+								  		Hacker
+								  	</div>
+								  	<input type="text" id="hackrow" style="text-align: center; padding: 0.3em; border-radius: 0px;" placeholder="100000" required>
+								 </div>
+							</form>
+		                </section> -->
+
+		                <!-- pattern -->
+		                <h2>Navigation<br>Pattern</h2>
+		                <section>
+		                	<div style="width:100%;height:100%;float:left;overflow: hidden;">
+			                	<div class="regular-form" style="height:100%;">
+			                		<input type="radio" id="regular" name="switch" class="hide">
+									<input type="radio" id="hack" name="switch" class="hide">
+
+									<div>
+										<ul class="form-header">
+										<li id="wuhawuharegular" style="background:#1A6898;color:white;"><label id="wuhawuharegularr" for="regular">Regular</label></li>
+										<li style="width:6px;font-size:1px;background:white;color:white;">a<label></label></li>
+										<li id="wuhawuhahack"><label id="wuhawuhahackh" for="hack">Hack</label></li>
+										</ul>
+									</div>
+
+				                	<div class="section-out" style="height:100%;">
+
+				                		
+
+				                		<section class="regular-section" style="height:100%;">
+				                			<div class="tagview"></div>
+				                			<h3 class="infobuttonh5">The "Regular User" traffic path</h3>
+						                	<!-- regular -->
+						                	<!-- add -->
+							                <!-- <input type="button" id="add-regularpattern" name="add-regularpattern" value="Add Regular Pattern" style="display: inline-block; float: right; width: 15%; background-color:white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+							                <button id="add-regularpattern" name="add-regularpattern" class="add1" style="margin-right:11.3%;"><img src="/static/registration/images/add.png"></button>
+							               	
+							               	<div id="ceshi" style="text-align: center; display: block; width: 18%; color: black; padding: 1%; margin-bottom: 0%; border-radius: 0px;">
+								            	
+								            </div>
+								            <div class="kuang" id="keshan" style="height:70%;overflow:scroll;">
+								            	<div id="ceshi000"></div>
+
+								               	<div class="kuang2" id="regularpattern0" style="margin-bottom:0%;height:60px;font-size:15px;float: left;display: inline-block; width: 85.9%; border-bottom-style:solid;border-width:1px;border-bottom-color:#CCCCCC;padding:1%;">
+
+								               		<!-- <select multiple="multiple" name="regularpattern" id="regularpattern" style="border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;width: 100%; border-radius: 0px;height:100%;"></select> -->
+
+								               		<input type="text" name="regularpattern" id="regularpattern" style="border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;width: 100%; border-radius: 0px;height:100%;">
+								               	</div>
+								               	<!-- reduce -->
+								               	<!-- <input type="button" id="remove-regularpattern0" name="remove-regularpattern" value="X" style="display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 10%;border-bottom-style:solid;border-width:1px;"/> -->
+								               	<button id="remove-regularpattern0" name="remove-regularpattern" style="height:60px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+								            </div>
+				                		</section>
+
+				                		<section style="height:100%;" class="hack-section">
+				                			<div class="tagview" style="margin-left:2.8%;"></div>
+				                			<h3 class="infobuttonh5" style="margin-left:3%;">The "Hacker User" traffic path</h3>
+				                			<!-- hack -->
+						                	<!-- add -->
+						                	<!-- <input type="button" id="add-hackpattern" name="add-hackpattern" value="Add Hacker Pattern" style="float: right; width: 15%; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%;margin-top:0%;"/> -->
+						                	<button id="add-hackpattern" name="add-hackpattern" class="add1" style="margin-right:11.3%;"><img src="/static/registration/images/add.png"></button>
+						                	
+						                	<div id="ceshi1" style="text-align: center; display: block; width: 18%; color: black; margin-left:3%; margin-bottom: 1%;margin-top:2%; border-radius: 0px;">
+						                		
+						                	</div>
+						                	<div class="kuang" id="keshan1" style="height:70%;overflow:scroll;">
+						                		<div id="ceshi001"></div>
+							                	<div class="kuang2" id="hackpattern0" style="margin-left:3%;margin-bottom:0%;height:60px;font-size:15px;float: left;display: inline-block; width: 82.9%;border-bottom-style:solid;border-width:1px;border-bottom-color:#CCCCCC;padding:1%;">
+							                		
+							                		<!-- <select multiple="multiple" name="hackpattern" id="hackpattern" style="border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;float:left;width: 100%; height:100%; border-radius: 0px;"></select> -->
+							                		<input type="text" name="hackpattern" id="hackpattern" style="border: 2px ridge rgba(187, 185, 189, 0.11);background-color:#F0EEF0;float:left;width: 100%; height:100%; border-radius: 0px;">
+							                		
+							                	</div>
+							                	<!-- reduce -->
+							                	<!-- <input type="button" id="remove-hackpattern0" class="remove-hackpattern" value="X" style="eight:50px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 10%;"/> -->
+							                	<button id="remove-hackpattern0" style="height:60px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+							                </div>
+				                		</section>
+				                	</div>
+				                </div>
+				            </div>
+
+
+
+				                	
+		                </section>
+
+		                <!-- traffic -->
+		                <h2>Traffic<br>Distribution</h2>
+			            <section>
+			            	
+			            	<div style="width:50%;height:110%;float:left;overflow: hidden;">
+			            		<div class="regular1-form" style="height:100%;">
+			                		<input type="radio" id="regular1" name="switch" class="hide">
+									<input type="radio" id="hack1" name="switch" class="hide">
+
+									<div>
+										<ul class="form-header">
+										<li id="wuhawuharegular1" style="background:#1A6898;color:white;"><label id="wuhawuharegular1r" for="regular1">Regular</label></li>
+										<li style="width:6px;font-size:1px;background:white;color:white;">a<label></label></li>
+										<li id="wuhawuhahack1"><label id="wuhawuhahack1h" for="hack1">Hack</label></li>
+										</ul>
+									</div>
+									<div class="section-out" style="height:100%;width:200%;">
+
+
+										<section style="height:100%;" class="regular-section">
+											<div class="tagview"></div>
+
+											<h3 class="infobuttonh3">The "Regular User" traffic distribution</h3>
+
+						                	<!-- regular -->
+						                	
+						                	<div class="infobutton">
+						                		<!-- add -->
+						                		<!-- <input type="button" id="add-regularperiod" name="add-regularperiod" value="Add Regular Period" style="float: right; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+						                		<button id="add-regularperiod" name="add-regularperiod" class="add" style="margin-right:1.5%"><img src="/static/registration/images/add.png"></button>
+
+						                		<!-- caltotal -->
+							                	<!-- <span id="totalrp" class="cal">100</span>
+							                	<input type="text" class="total" value="Total:" readonly> -->
+
+				   
+								               	<!-- period -->
+							                    <div id="ceshi2" style="margin-left:3%; display: inline-block; width: 66%;height:100%; background-color: white; color: black; padding: 1%; margin-bottom: 2%; border-radius: 0px;">
+								                    Begin<div style="width:20%;height:100%;display:inline-block;"></div>End
+								                    <div style="width:27%;height:100%;display:inline-block;"></div>Percentage
+								                </div>
+						                	</div>
+							                
+
+							                <div class="kuang" style="height:60%;overflow:scroll;">
+							                	<div id="ceshi222"></div>
+							                    <div class="kuang2" id="regularperiod0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 93.6%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%;">
+							                    	
+								                    <input class="" type="text" name="regularperiodstart" id="regularperiodstart" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: center; width: 15%;  border-radius: 0px;" value="00:00:00" required>
+								                    ~
+								                    <input class="" type="text" name="regularperiodend" id="regularperiodend" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: center; width: 15%;  border-radius: 0px;" value="03:00:00" required>
+								                    
+								                    <input class="" type="text" name="regularpatternpercentage" id="regularpatternpercentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 15%;text-align: right; width: 10%;  border-radius: 0px;" value="100" required>
+								                    %
+								                    
+							                    </div>
+							                    <!-- reduce -->
+								               	<!-- <input type="button" id="remove-regularperiod0" name="remove-regularperiod" value="X" style="display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+								               	<button id="remove-regularperiod0" style="height:47px;font-size:15px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+								            </div>
+								            <div style="height:10%;width:55%;margin-top:3%;">
+								            	<span id="totalrp" class="cal">100</span>
+							                	<input type="text" class="total" value="Total:" readonly>
+								            </div>
+					                    </section>
+					                    <section style="height:100%;" class="hack-section">
+					                    	<div class="tagview"></div>
+
+					                    	<h3 class="infobuttonh3">The "Hack User" traffic distribution</h3>
+						                    <!-- hack -->
+						                    <div class="infobutton" style="margin-top:0%;">
+						                    	<!-- add -->
+							                	<!-- <input type="button" id="add-hackperiod" name="add-hackperiod" value="Add Hacker Period" style="float: right; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%;margin-top:0%;"/> -->
+							                	<button id="add-hackperiod" name="add-hackperiod" class="add" style="margin-right:1.5%"><img src="/static/registration/images/add.png"></button>
+
+							                	<!-- caltotal -->
+							                	<!-- <span id="totalhp" class="cal">100</span>
+							                	<input type="text" class="total" value="Total:" readonly> -->
+							                	
+							                	<!-- period -->
+							                   	<div id="ceshi3" style="margin-left:3%; display: inline-block; width: 66%;height:100%; background-color: white; color: black; padding: 1%; margin-bottom: 2%; border-radius: 0px;">
+								                    Begin<div style="width:20%;height:100%;display:inline-block;"></div>End
+								                    <div style="width:27%;height:100%;display:inline-block;"></div>Percentage
+								                </div>
+						                    </div>
+						                    
+							                <div class="kuang" style="height:60%;overflow:scroll;">
+							                	<div id="ceshi333"></div>
+							                	<div class="kuang2" id="hackperiod0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 93.6%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%;">
+							                    	
+								                    <input class="" type="text" name="hackperiodstart" id="hackperiodstart" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: center; width: 15%;  border-radius: 0px;" value="00:00:00" required>
+								                    ~
+								                    <input class="" type="text" name="hackperiodend" id="hackperiodend" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: center; width: 15%; border-radius: 0px;" value="03:00:00" required>
+								                    
+								                    <input class="" type="text" name="hackpatternpercentage" id="hackpatternpercentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 15%;text-align: right; width: 10%; border-radius: 0px;" value="100" required>
+								                    %
+								                    
+							                    </div>
+							                    <!-- reduce -->
+							                	<!-- <input type="button" id="remove-hackperiod0" name="remove-hackperiod" value="X" style="display: inline-block;float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 25%;"/> -->
+							                	<button id="remove-hackperiod0" style="height:47px;font-size:15px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+							                </div>
+							                <div style="height:10%;width:55%;margin-top:3%;">
+								            	<span id="totalhp" class="cal">100</span>
+							                	<input type="text" class="total" value="Total:" readonly>
+								            </div>
+							            </section>
+						            </div>
+					            </div>
+			            	</div>
+			            	<input type="button" id="periodplot3d" class="gb" style="margin-top:3%;float: right; background-color:#f3f3f3; color:black; border-style:solid;border-width:1px;border-color:#dbdbdb;" value="Plot3D">
+			            	<input type="button" id="periodplot" class="gb" style="float: right; background-color:#f3f3f3; color:black;margin-right:1%;margin-left:1%;margin-top:3%;border-style:solid;border-width:1px;border-color:#dbdbdb;" value="Plot2D">
+			            	<canvas width="50" height="3" style="margin-top:3.8%;float:right;background-color:#1A6898;"></canvas>
+			            	<div style="float:right;margin-top:3%;">Regular:</div>
+			            	<canvas width="50" height="3" style="margin-top:3.8%;float:right;background-color:red;margin-right:1%;"></canvas>
+			            	<div style="float:right;margin-top:3%;">Hack:</div>
+
+
+			            	
+			            	<div id="scatterplot" class="scplot"></div>
+		                </section>
+
+		                <!-- Method -->
+		                <h2>Method<br>Distribution</h2>
+		                <section>
+		                	<h3 class="infobuttonh3">The Http method distribution</h3>
+		                	<!-- name -->
+				            <div id="ceshi4" style="float:left;text-align: left; display: inline-block; width: 51%;height:6%; background-color: white; color: black; padding: 1%; margin-bottom: 1%; border-radius: 0px;margin-top:1%;">
+				            	<div style="display:inline-block;margin-left:6%;"></div>HttpMethodName
+				            		<div style="display:inline-block;margin-left:23%;">Pecentage</div>
+					        </div>
+		                	<div style="width:51%;float:left;height:70%;overflow:scroll;">
+			                	<!-- add -->
+			                	<!-- <input type="button" id="add-method" name="add-method" value="Add Method" style="float: right;  background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+
+			                	
+			                	
+			                    
+				                
+				                <!-- pecentage -->
+				                
+				                <div class="kuang">
+				                    <div class="kuang2" id="method8" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="GET" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="40" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method7" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="POST" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="50" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method6" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="HEAD" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method5" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%;  border-radius: 0px;" value="PUT" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="2" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method4" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="DELETE" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="5" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method3" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="TRACE" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="0.1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method2" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="OPTIONS" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="2" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method1" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="CONNECT" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="0.6" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="method0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="methodname" style="margin-left: 11%; text-align: center; width: 20%; border-radius: 0px;" value="PATCH" required readonly>
+					                    
+					                    <input class="" type="text" name="methodpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:45%;text-align: right; width: 15%;  border-radius: 0px;" value="0.3" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-method0" name="remove-method" value="X" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-left: 0%;"/> -->
+				                	<!-- <button id="remove-method0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+				                </div>
+				            </div>
+				            
+			                
+				            <div id="methodpieChart" class="scplot" style="margin-top:-10%;"></div>
+
+				            <div style="height:10%;margin-top:3%;width:31%;float:left;text-align:right;">
+				            	<span id="totalmethod" class="cal">100</span>
+			                	<input type="text" class="total" value="Total:" readonly>
+				            </div>
+				            	
+		                </section>
+
+		                <!-- Response -->
+		                <h2>Response<br>Distribution</h2>
+		                <section>
+		                	<h3 class="infobuttonh3">The response distribution</h3>
+		                	<div style="width:51%;float:left;height:80%;">
+			                    <!-- add -->
+			                	<!-- <input type="button" id="add-response" name="add-response" value="Add Response" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+			                	<!-- <button id="add-response" name="add-response" class="add" style="margin-right:1.5%;"><img src="/static/registration/images/add.png"></button> -->
+
+			                	<!-- caltotal -->
+							   <!--  <span id="totalresponse" class="cal">100</span>
+							    <input type="text" class="total" value="Total:" readonly> -->
+			                	
+			                    
+			                	<!-- name -->
+			                   	
+				                <div id="ceshi5" style="text-align: center; display: inline-block; width: 60%; background-color: white; color: black; padding: 1%; margin-bottom: 1%; border-radius: 0px;margin-top:1%;">
+					              	ResponseName<div style="display:inline-block;margin-left:40%;">Pecentage</div>
+					            </div>
+
+				                <div class="kuang" style="height:90%;overflow:scroll;">
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="200" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="30" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="300" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="301" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="302" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="5" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="304" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="5" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="307" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="400" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="10" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="401" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="10" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="403" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="10" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="404" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="10" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="410" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="5" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="500" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="501" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="5" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="503" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="5" required>
+					                    %
+					                    
+					                    
+				                    </div>
+
+				                    <div class="kuang2" id="response0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 70%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="responsename" style="height:100%;background-color:#white;margin-left:10%;text-align: center; width: 15%;  border-radius: 0px;" value="550" required readonly>
+					                    
+					                    
+
+					                    <input class="" type="text" name="responsepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:39%;text-align: right; width: 15%; border-radius: 0px;" value="1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-response0" name="remove-response" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-response0" style="height:50px;font-size:15px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+				                </div>
+				            </div>
+
+				            <!-- <input type="button" id="repie" style="float: right; background-color:white; color:black;" value="Plot"> -->
+				            <div id="repieChart" class="scplot" style="margin-top:-5%;margin-bottom:10%;"></div>
+
+				            <div style="height:10%;margin-top:3%;width:28%;float:left;text-align:right;">
+				            	<span id="totalresponse" class="cal">100</span>
+							    <input type="text" class="total" value="Total:" readonly>
+				            </div>
+		                </section>
+
+		                <!-- Size -->
+		                <!-- <h2>Data Size Distribution</h2>
+		                <section style="overflow:scroll;">
+		                	<h3 class="infobuttonh3">The transfered data size distribution</h3>
+		                	<div style="width:60%;float:left;"> -->
+			                    <!-- add -->
+			                	<!-- <input type="button" id="add-size" name="add-size" value="Add Date Size" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+			                	<!-- <button id="add-size" name="add-size" class="add"><img src="/static/registration/images/add.png"></button> -->
+
+			                	<!-- caltotal -->
+							    <!-- <span id="totalsize" class="cal">0</span>
+							    <input type="text" class="total" value="Total:" readonly> -->
+			                	
+			                    
+			                	<!-- name -->
+			                   	<!-- <div id="ceshi6" style="text-align: center; display: inline-block; width: 60%;height:100%; background-color: white; color: black; padding: 1%; margin-bottom: 1%; border-radius: 0px;margin-top:1%;">
+					              	DataTransferSize<div style="display:inline-block;margin-left:40%;">Pecentage</div>
+					            </div>
+
+				                <div class="kuang">
+				                    <div class="kuang2" id="size0" style="height:50px;font-size:15px;float:left; display: inline-block; width: 92%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="datesize" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:5%;text-align: right; width: 15%; border-radius: 0px;" placeholder="6000" required>KB
+					                    
+					                    
+					                    <input class="" type="text" name="sizepecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:25%;text-align: right; width: 10%; border-radius: 0px;" placeholder="100" required>
+					                    %
+					                    
+					                   
+				                    </div> -->
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-size0" name="remove-size" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-size0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+				                </div>
+				            </div>
+
+				            <input type="button" id="sizepie" style="float: right; background-color:white; color:black;" value="Plot">
+				            <div id="sizepieChart" class="scplot" ></div>
+		                </section> -->
+
+		                <!-- from -->
+		                <h2>From URL<br>Distribution</h2>
+		                <section>
+		                	
+
+			            	<div style="width:36%;float:left;overflow:hidden;height:110%;">
+			            		<div class="regular1-form" style="height:100%;">
+			                		<input type="radio" id="regular3" name="switch" class="hide">
+									<input type="radio" id="hack3" name="switch" class="hide">
+
+									<div>
+										<ul class="form-header">
+										<li id="wuhawuharegular3" style="background:#1A6898;color:white;"><label id="wuhawuharegular3r" for="regular3">Regular</label></li>
+										<li style="width:6px;font-size:1px;background:white;color:white;">a<label></label></li>
+										<li id="wuhawuhahack3"><label id="wuhawuhahack3h" for="hack3">Hack</label></li>
+										</ul>
+									</div>
+									<div class="section-out" style="width:200%;height:100%">
+
+
+										<section style="height:100%;" class="regular-section">
+											<div class="tagview"></div>
+
+											<h6 class="infobuttonh6">The "Regular User" FromURL distribution</h6>
+
+						                	<!-- regular -->
+						                	
+						                	<div class="infobutton">
+						                		<!-- add -->
+						                		<!-- <input type="button" id="add-regularperiod" name="add-regularperiod" value="Add Regular Period" style="float: right; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+						                		<button id="add-url" name="add-url" class="add" style="margin-right:1.5%;"><img src="/static/registration/images/add.png"></button>
+
+						                		<!-- caltotal -->
+							                	
+
+				   
+								               	<!-- name -->
+								                <div id="ceshi7" style="text-align: center; display: inline-block; width: 78%; background-color: white; color: black; padding: 1%; margin-bottom: 1%; border-radius: 0px;margin-top:1%;">
+									              	From URL<div style="display:inline-block;margin-left:55%;">Pecentage</div>
+									            </div>
+						                	</div>
+							                
+
+							                <div class="kuang" style="height:60%; overflow:scroll;">
+							                	<div id="ceshi777"></div>
+							                    <div class="kuang2" id="url2" style="height:40px;font-size:15px;float:left; display: inline-block; width: 92.5%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+								                    <input class="" type="text" name="fromurl" id="fromurl" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: left; width: 60%;  border-radius: 0px;" value="http://www.google.com" required>
+								                    
+								                    <input class="" type="text" name="urlpecentage" id="urlpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:5%;text-align: right; width: 15%; border-radius: 0px;" value="50" required>
+								                    %
+								                    
+								                    
+							                    </div>
+							                    <!-- reduce -->
+							                	<!-- <input type="button" id="remove-url0" name="remove-url" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 20%;"/> -->
+							                	<button id="remove-url2" style="height:40px;font-size:15px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+
+							                	<div class="kuang2" id="url1" style="height:40px;font-size:15px;float:left; display: inline-block; width: 92.5%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+							                    	
+								                    <input class="" type="text" name="fromurl" id="fromurl" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: left; width: 60%;  border-radius: 0px;" value="http://www.yahoo.com" required>
+								                    
+								                    <input class="" type="text" name="urlpecentage" id="urlpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:5%;text-align: right; width: 15%; border-radius: 0px;" value="30" required>
+								                    %
+								                    
+								                    
+							                    </div>
+							                    <!-- reduce -->
+							                	<!-- <input type="button" id="remove-url0" name="remove-url" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 20%;"/> -->
+							                	<button id="remove-url1" style="height:40px;font-size:15px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+
+							                    <div class="kuang2" id="url0" style="height:40px;font-size:15px;float:left; display: inline-block; width: 92.5%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+							                    	
+								                    <input class="" type="text" name="fromurl" id="fromurl" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: left; width: 60%;  border-radius: 0px;" value="http://www.youtube.com" required>
+								                    
+								                    <input class="" type="text" name="urlpecentage" id="urlpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:5%;text-align: right; width: 15%; border-radius: 0px;" value="20" required>
+								                    %
+								                    
+								                    
+							                    </div>
+							                    <!-- reduce -->
+							                	<!-- <input type="button" id="remove-url0" name="remove-url" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 20%;"/> -->
+							                	<button id="remove-url0" style="height:40px;font-size:15px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+								            </div>
+								            <div style="height:10%;width:72%;margin-top:3%;">
+								            	<span id="totalurl" class="cal">100</span>
+							    				<input type="text" class="total" value="Total:" readonly>
+								            </div>
+								            
+					                    </section>
+					                    <section style="height:100%;" class="hack-section">
+					                    	<div class="tagview"></div>
+
+											<h6 class="infobuttonh6">The "Hacker User" FromURL distribution</h6>
+
+						                	<!-- hack -->
+						                	
+						                	<div class="infobutton">
+						                		<!-- add -->
+						                		<!-- <input type="button" id="add-regularperiod" name="add-regularperiod" value="Add Regular Period" style="float: right; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+						                		<button id="add-hurl" name="add-hurl" class="add" style="margin-right:1.5%;"><img src="/static/registration/images/add.png"></button>
+
+						                		<!-- caltotal -->
+							                	
+
+				   
+								               	<!-- name -->
+								                <div id="ceshi77" style="text-align: left; display: inline-block; width: 78%; background-color: white; color: black; padding: 1%; margin-bottom: 1%; border-radius: 0px;margin-top:1%; margin-left:3%;">
+									              	From URL<div style="display:inline-block;margin-left:55%;">Pecentage</div>
+									            </div>
+						                	</div>
+							                
+
+							                <div class="kuang" style="height:60%; overflow:scroll;">
+							                	<div id="ceshi7777"></div>
+							                    <div class="kuang2" id="hurl0" style="height:40px;font-size:15px;float:left; display: inline-block; width: 92.5%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+							                    	
+								                    <input class="" type="text" name="fromhurl" id="fromhurl" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: left; width: 60%;  border-radius: 0px;" value="http://www.hack.com" required>
+								                    
+								                    <input class="" type="text" name="hurlpecentage" id="hurlpecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:5%;text-align: right; width: 15%; border-radius: 0px;" value="100" required>
+								                    %
+								                    
+								                    
+							                    </div>
+							                    <!-- reduce -->
+							                	<!-- <input type="button" id="remove-url0" name="remove-url" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 20%;"/> -->
+							                	<button id="remove-hurl0" style="height:40px;font-size:15px;display: inline-block; float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+								            </div>
+								            <div style="height:10%;width:72%;margin-top:3%;">
+								            	<span id="totalhurl" class="cal">100</span>
+							    				<input type="text" class="total" value="Total:" readonly>
+								            </div>
+					                    </section>
+						            </div>
+					            </div>
+			            	</div>
+
+			            	<!-- <input type="button" id="hurlpie" style="float: right; background-color:white; color:black; display:inline-block;" value="Plot Hack">
+
+				            <input type="button" id="urlpie" style="float: right; background-color:white; color:black; margin-right:3%; display:inline-block;" value="Plot Regular"> -->
+				            <div id="urlpieChart" class="scplot" style="width:60%;"></div>
+				            
+		                </section>
+
+		                <!-- system -->
+		                <h2>System<br>Distribution</h2>
+		                <section>
+		                	<h3 class="infobuttonh3">The system distribution</h3>
+		                	<div style="width:50%;float:left;height:100%;">
+			                    <!-- add -->
+			                	<!-- <input type="button" id="add-system" name="add-system" value="Add System" style="float: right; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+
+			                	<!-- caltotal -->
+			                	<!-- <span id="totalsystem" class="cal">100</span>
+			                	<input type="text" class="total" value="Total:" readonly> -->
+			                	
+			                    <!-- name -->
+			                   	<div id="ceshi8" style="text-align: center; display: inline-block; width: 60%; background-color: white; color: black; padding: 1%; margin-bottom: 1%; border-radius: 0px;margin-top:1%;">
+					              	SystemName<div style="display:inline-block;margin-left:45%;">Pecentage</div>
+					            </div>
+				                <div class="kuang" style="height:70%; overflow:scroll;">
+				                    <div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="iPhone" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="30" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="iPad" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="10" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="iPod" required readonly>
+					                   	
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="2" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="Windows" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="36" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="Linux" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="3" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="Ubuntu" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="3" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="Android" required readonly>
+					                   	
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="11" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="Mac" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="5" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="BlackBerry" required>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="0.1" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="PS4" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="0.3" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="WiiU" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="0.2" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+
+				                	<div class="kuang2" id="system0" style="height:47px;font-size:15px;float:left; display: inline-block; width: 66%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+				                    	
+					                    <input class="" type="text" name="systemname" style="margin-left: 9%;text-align: center; width: 20%; border-radius: 0px;" value="3DS" required readonly>
+					                    
+					                    
+					                    <input class="" type="text" name="systempecentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left:40%;text-align: right; width: 15%; border-radius: 0px;" value="0.4" required>
+					                    %
+					                    
+					                    
+				                    </div>
+				                    <!-- reduce -->
+				                	<!-- <input type="button" id="remove-system0" name="remove-system" value="X" style="float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+				                	<!-- <button id="remove-system0" style="height:50px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button> -->
+				                </div>
+				                <div style="float:left;height:10%;margin-top:5%;width:55%;">
+					            	<span id="totalsystem" class="cal">100</span>
+				                	<input type="text" class="total" value="Total:" readonly>
+					            </div>
+				            </div>
+				            <!-- <input type="button" id="syspie" style="float: right; background-color:white; color:black;" value="Plot"> -->
+				            <div id="syspieChart" class="scplot" style="margin-top:-5%;"></div>
+
+				            
+		                </section>
+
+		                <!-- city -->
+		                <h2>Geographical<br>Distribution</h2>
+		                <section>
+		                	<div id="niubi" style="width:30%; height:110%;float:left;display:inline-block;">
+			                	<div style="width:100%;height:110%;float:left;overflow: hidden;" class="regular-form">
+			                		<input type="radio" id="regular2" name="switch" class="hide">
+									<input type="radio" id="hack2" name="switch" class="hide">
+
+									<div>
+										<ul class="form-header">
+										<li id="wuhawuharegular2" style="background:#1A6898;color:white;"><label id="wuhawuharegular2r" for="regular2">Regular</label></li>
+										<li style="width:6px;font-size:1px;background:white;color:white;">a<label></label></li>
+										<li id="wuhawuhahack2"><label id="wuhawuhahack2h" for="hack2">Hack</label></li>
+										</ul>
+									</div>
+
+									<div class="section-out" style="height:100%;">
+										<section style="height:100%;" class="regular-section">
+											<div class="tagview"></div>
+
+
+						                	<h6 class="infobuttonh6">"Regular User" city distribution</h6>
+						                	<!-- regular -->
+						                	<!-- add -->
+							                <!-- <input type="button" id="add-regularcity" name="add-regularcity" value="Add Regular City" style="display: inline-block; float: right; width: 15%; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%"/> -->
+							                <button id="add-regularcity" name="add-regularcity" class="add" style="margin-right:3.3%;"><img src="/static/registration/images/add.png"></button>
+
+							                <!-- caltotal -->
+										    <!-- <span id="totalrc" class="cal2">100</span>
+										    <input type="text" class="total" style="width:5%;" value="Total:" readonly> -->
+							               
+						                    <!-- period -->
+						                    <div id="ceshi9" style="float:left;width:85%;padding:1%;">
+						                    	<!-- <div style="text-align: center; display: inline-block; width: 23%; background-color: white; color: black;  border-radius: 0px; margin-left:5%;">
+								                   	Country
+								                </div> -->
+
+
+						                    	<div style="text-align: center; display: inline-block; width: 23%; background-color: white; color: black;  border-radius: 0px; margin-left:20%;">
+								                   	City
+								                </div>
+								                <!-- <div style="margin-left: 6%;text-align: center; display: inline-block; width: 30%; background-color: white; color: black;   border-radius: 0px;">
+								                   	Country
+								                </div> -->
+								                <!-- percentage -->
+								                <div style="text-align: center; display: inline-block; width: 23%; background-color: white; color: black; float:right; border-radius: 0px;">
+								                  	Pecentage
+								                </div>
+						                    </div>
+					                   	
+
+
+
+							                <div class="kuang" style="width:100%;height:55%;overflow:scroll;">
+							                	<div id="ceshi999"></div>
+							                    <div class="kuang2" id="regularcity0" style="height:40px;font-size:15px;float:left; display: inline-block; width: 90%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+							                    	
+								                    <!-- <input class="" type="text" name="regularcityname" id="regularcityname" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 2%;text-align: center; width: 36%;  border-radius: 0px;" value="New York" required> -->
+								                    <!-- <select name="regularcityname" id="regularcityname" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 2%;text-align: center; width: 36%;  border-radius: 0px;"></select> -->
+
+								                    <div id="123" class="typeahead-container" style="display:inline-block;width: 100%; height:100%;">
+								                    	<!-- <div id="123123123" class="typeahead-field" style="width:32.5%;display:inline-block;height:100%;">
+												            <select id="regularcountryname" name="regularcountryname" type="text" autocomplete="off" style="font-size:15px;border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 0%;text-align: left; width: 100%;  border-radius: 0px;"></select>
+												        </div> -->
+
+												        <div id="123123" class="typeahead-field" style="width:70%;display:inline-block;height:100%;">
+												            <input id="regularcityname" name="regularcityname" type="text" autocomplete="off" style="font-size:15px;border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 0%;text-align: left; width: 100%;  border-radius: 0px;">
+												        </div>
+
+												        <script type="text/javascript">
+												   //      	$('#regularcityname').typeahead({
+															//     order: "desc",
+															//     source: {
+															//         data: [
+															//             {% for key, value in countrycity.items %}
+															//             	{% for v in value %}
+															//             		"{{v}}" + ',\t' + "{{key}}",
+															//             	{% endfor %}
+															//             {% endfor %}
+															//         ]
+															//     }
+															// });
+												        </script>
+
+												        <div id="456" class="typeahead-field" style="margin-left: 5%;width:15%;display:inline-block;height:100%;">
+											                <input class="" type="text" name="regularcitypercentage" id="regularcitypercentage" style="font-size:15px;border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: right; width: 100%; border-radius: 0px;" value="100" required>
+												        </div>
+												    </div>
+
+
+								                    <!-- <input class="" type="text" name="regularcountryname" id="regularcountryname" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 5%;text-align: center; width: 20%;  border-radius: 0px;" value="United States" required> -->
+								                    
+								                    <!-- <input class="" type="text" name="regularcitypercentage" id="regularcitypercentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 20%;text-align: right; width: 15%; border-radius: 0px;" value="100" required>
+								                    % -->
+								                    
+							                    </div>
+							                    <!-- reduce -->
+								               	<!-- <input type="button" id="remove-regularcity0" name="remove-regularcity" value="X" style="display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+								               	<button id="remove-regularcity0" style="height:40px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+								            </div>
+								            <div style="float:left;height:10%;margin-top:3%;width:80%;">
+								            	<span id="totalrc" class="cal">100</span>
+										    	<input type="text" class="total" style="width:15%;" value="Total:" readonly>
+								            </div>
+								        </section>
+
+								        <section style="height:100%;" class="hack-section">
+								        	<div class="tagview" style="margin-left:2.8%;"></div>
+
+								        	<h6 class="infobuttonh6" style="margin-left:3%;">"Hacker User" city distribution</h6>
+
+
+						                    <!-- hack -->
+						                    <!-- add -->
+						                	<!-- <input type="button" id="add-hackcity" name="add-hackcity" value="Add Hacker City" style="float: right; width: 15%; background-color: white; color: black; padding: 1%;margin-top:0%; border-radius: 0px; margin-bottom: 1% "/> -->
+						                	<button id="add-hackcity" name="add-hackcity" class="add" style="margin-right:3.3%;"><img src="/static/registration/images/add.png"></button>
+
+						                	<!-- caltotal -->
+										    <!-- <span id="totalhc" class="cal2">100</span>
+										    <input type="text" class="total" style="width:5%" value="Total:" readonly> -->
+							               	
+						                	
+						                	<!-- period -->
+							                <div id="ceshi10" style="margin-left:3%;float:left;width:85%;padding:1%;margin-top:0%;">
+						                    	<!-- <div style="text-align: center; display: inline-block; width: 23%; background-color: white; color: black;  border-radius: 0px; margin-left:5%;">
+								                   	Country
+								                </div> -->
+
+
+						                    	<div style="text-align: center; display: inline-block; width: 23%; background-color: white; color: black;  border-radius: 0px; margin-left:15%;">
+								                   	City
+								                </div>
+								                <!-- <div style="margin-left:6%;text-align: center; display: inline-block; width: 30%; background-color: white; color: black;   border-radius: 0px;">
+								                   	Country
+								                </div> -->
+								                <!-- percentage -->
+								                <div style="text-align: center; display: inline-block; width: 23%; background-color: white; color: black; float:right; margin-right:5%; border-radius: 0px;">
+								                  	Pecentage
+								                </div>
+						                    </div>
+
+							                <div class="kuang" style="height:55%; overflow:scroll;width:100%;">
+							                	<div id="ceshi1010"></div>
+							                	<div class="kuang2" id="hackcity0" style="margin-left:3%;height:40px;font-size:15px;float:left; display: inline-block; width: 87%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;padding:1%">
+							                    	
+								                    <!-- <input class="" type="text" name="hackcityname" id="hackcityname" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 2%;text-align: center; width: 36%;  border-radius: 0px;" value="Tokyo" required> -->
+								                    <!-- <select name="hackcityname" id="hackcityname" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 2%;text-align: center; width: 36%;  border-radius: 0px;"></select> -->
+								                    <div id="123" class="typeahead-container" style="display:inline-block;width: 100%; height:100%;">
+								                    	<!-- <div id="123123123" class="typeahead-field" style="width:30.5%;display:inline-block;height:100%;">
+												            <select id="hackcountryname" name="hackcountryname" type="text" autocomplete="off" style="font-size:15px;border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 0%;text-align: left; width: 100%;  border-radius: 0px;"></select>
+												        </div> -->
+
+												        <div id="123123" class="typeahead-field" style="width:66%;display:inline-block;height:100%;margin-left:5%;">
+												            <input id="hackcityname" name="hackcityname" type="text" autocomplete="off" style="font-size:15px;border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 0%;text-align: left; width: 100%;  border-radius: 0px;">
+												        </div>
+
+												        <script type="text/javascript">
+												   //      	$('#hackcityname').typeahead({
+															//     order: "desc",
+															//     source: {
+															//         data: [
+															//             {% for key, value in countrycity.items %}
+															//             	{% for v in value %}
+															//             		"{{v}}" + ',\t' + "{{key}}",
+															//             	{% endfor %}
+															//             {% endfor %}
+															//         ]
+															//     }
+															// });
+												        </script>
+
+												        <div id="456" class="typeahead-field" style="margin-left: 5%;width:16.5%;display:inline-block;height:100%;">
+											                <input class="" type="text" name="hackcitypercentage" id="hackcitypercentage" style="font-size:15px;border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;text-align: right; width: 100%; border-radius: 0px;" value="100" required>
+												        </div>
+												    </div>
+
+								                    <!-- <input class="" type="text" name="hackcountryname" id="hackcountryname" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 6%;text-align: center; width: 20%;  border-radius: 0px;" value="Japan" required> -->
+								                    
+								                   <!--  <input class="" type="text" name="hackcitypercentage" id="hackcitypercentage" style="border: 2px ridge rgba(187, 185, 189, 0.11);height:100%;background-color:#F0EEF0;margin-left: 20%;text-align: right; width: 15%;  border-radius: 0px;" value="100" required>
+								                    % -->
+								                    
+							                    </div>
+							                    <!-- reduce -->
+							                	<!-- <input type="button" id="remove-hackcity0" name="remove-hackcity" value="Ⅹ" style="float: left; width: auto%; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 1%; margin-left: 30%;"/> -->
+							                	<button id="remove-hackcity0" style="height:40px;font-size:15px;display: inline-block; float: left; width: auto; background-color: white; color: black; padding: 1%; border-radius: 0px; margin-bottom: 0%; margin-right: 0%;border-style: hidden;border-bottom-style: solid;border-bottom-width:1px;border-bottom-color:#CCCCCC;"><img src="/static/registration/images/delete.png"></button>
+							                </div>
+							                <div style="float:left;height:10%;margin-top:3%;width:75%;margin-left:3%;">
+								            	<span id="totalhc" class="cal">100</span>
+										    	<input type="text" class="total" style="width:15%" value="Total:" readonly>
+								            </div>
+							            </section>
+							        </div>
+
+					            </div>
+				        	</div>
+
+				        	<div id="geochartceshi" style="float:right;height:100%;width:66%;display:inline-block;overflow:scroll;"></div>
+
+		                </section>
+		            </div>
+		        </div>
+	    	</div>
+	    </div>
+
+    </body>
+</html>
