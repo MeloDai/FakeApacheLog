@@ -758,7 +758,11 @@ jQuery(function($){
 				for (var i = 0; i < regularcityname.length; i++) {
 
 					if ( regularcityname && regularcityname[i].value != "" ) {
-						var city = regularcityname[i].value.split(", ")[0];
+						var city = "";
+						for (var ii = 0; ii < regularcityname[i].value.split(", ").length - 1; ii++) {
+							city = city + regularcityname[i].value.split(", ")[ii] + ","
+						};
+						city = city + regularcityname[i].value.split(", ")[regularcityname[i].value.split(", ").length-1];
 						var percentate = regularcitypercentage[i].value;
 						var tem = [city, parseFloat(percentate)];
 						data.push(tem);
@@ -897,7 +901,11 @@ jQuery(function($){
 				var data = new 	Array();
 				for (var i = 0; i < hackcityname.length; i++) {
 					if ( hackcityname && hackcityname[i].value != "" ) {
-						var city = hackcityname[i].value.split(", ")[0];
+						var city = "";
+						for (var ii = 0; ii < hackcityname[i].value.split(", ").length - 1; ii++) {
+							city = city + hackcityname[i].value.split(", ")[ii] + ","
+						};
+						city = city + hackcityname[i].value.split(", ")[hackcityname[i].value.split(", ").length-1];
 						var percentate = hackcitypercentage[i].value;
 						var tem = [city, parseFloat(percentate)];
 						data.push(tem);
@@ -2405,7 +2413,11 @@ $(document).ready(function(){
 			for (var i = 0; i < regularcityname.length; i++) {
 				//alert(regularcityname[i].value);
 				if ( regularcityname && regularcityname[i].value != "" ) {
-					var city = regularcityname[i].value.split(", ")[0];
+					var city = "";
+					for (var ii = 0; ii < regularcityname[i].value.split(", ").length - 1; ii++) {
+						city = city + regularcityname[i].value.split(", ")[ii] + ","
+					};
+					city = city + regularcityname[i].value.split(", ")[regularcityname[i].value.split(", ").length-1];
 					//alert(city);
 					var percentate = regularcitypercentage[i].value;
 					var tem = [city, parseFloat(percentate)];
@@ -2431,7 +2443,11 @@ $(document).ready(function(){
 			var data = new 	Array();
 			for (var i = 0; i < regularcityname.length; i++) {
 				if ( regularcityname && regularcityname[i].value != "" ) {
-					var city = regularcityname[i].value.split(", ")[0];
+					var city = "";
+					for (var ii = 0; ii < regularcityname[i].value.split(", ").length - 1; ii++) {
+						city = city + regularcityname[i].value.split(", ")[ii] + ","
+					};
+					city = city + regularcityname[i].value.split(", ")[regularcityname[i].value.split(", ").length-1];
 					var percentate = regularcitypercentage[i].value;
 					var tem = [city, parseFloat(percentate)];
 					data.push(tem);
@@ -2459,7 +2475,11 @@ $(document).ready(function(){
 			var data = new 	Array();
 			for (var i = 0; i < hackcityname.length; i++) {
 				if ( hackcityname && hackcityname[i].value != "" ) {
-					var city = hackcityname[i].value.split(", ")[0];
+					var city = "";
+					for (var ii = 0; ii < hackcityname[i].value.split(", ").length - 1; ii++) {
+						city = city + hackcityname[i].value.split(", ")[ii] + ","
+					};
+					city = city + hackcityname[i].value.split(", ")[hackcityname[i].value.split(", ").length-1];
 					var percentate = hackcitypercentage[i].value;
 					var tem = [city, parseFloat(percentate)];
 					data.push(tem);
@@ -2484,7 +2504,11 @@ $(document).ready(function(){
 			var data = new 	Array();
 			for (var i = 0; i < hackcityname.length; i++) {
 				if ( hackcityname && hackcityname[i].value != "" ) {
-					var city = hackcityname[i].value.split(", ")[0];
+					var city = "";
+					for (var ii = 0; ii < hackcityname[i].value.split(", ").length - 1; ii++) {
+						city = city + hackcityname[i].value.split(", ")[ii] + ","
+					};
+					city = city + hackcityname[i].value.split(", ")[hackcityname[i].value.split(", ").length-1];
 					var percentate = hackcitypercentage[i].value;
 					var tem = [city, parseFloat(percentate)];
 					data.push(tem);
@@ -2568,7 +2592,11 @@ $(document).ready(function(){
 			var data = new 	Array();
 			for (var i = 0; i < hackcityname.length; i++) {
 				if ( hackcityname && hackcityname[i].value != "" ) {
-					var city = hackcityname[i].value.split(", ")[0];
+					var city = "";
+					for (var ii = 0; ii < hackcityname[i].value.split(", ").length - 1; ii++) {
+						city = city + hackcityname[i].value.split(", ")[ii] + ","
+					};
+					city = city + hackcityname[i].value.split(", ")[hackcityname[i].value.split(", ").length-1];
 					var percentate = hackcitypercentage[i].value;
 					var tem = [city, parseFloat(percentate)];
 					data.push(tem);
@@ -2604,7 +2632,11 @@ $(document).ready(function(){
 			var data = new 	Array();
 			for (var i = 0; i < regularcityname.length; i++) {
 				if ( regularcityname && regularcityname[i].value != "" ) {
-					var city = regularcityname[i].value.split(", ")[0];
+					var city = "";
+					for (var ii = 0; ii < regularcityname[i].value.split(", ").length - 1; ii++) {
+						city = city + regularcityname[i].value.split(", ")[ii] + ","
+					};
+					city = city + regularcityname[i].value.split(", ")[regularcityname[i].value.split(", ").length-1];
 					var percentate = regularcitypercentage[i].value;
 					var tem = [city, parseFloat(percentate)];
 					data.push(tem);
